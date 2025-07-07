@@ -24,3 +24,4 @@ const child_process = spawn("cmd.exe", ["/c", "dir"]);
 child_process.stdout.on("data", (code) => console.log(`stdout data ${code}`));
 child_process.stderr.on("data", (code) => console.log(`stderr data ${code}`));
 child_process.stdout.on("exit", (code) => console.log(`code exit ${code}`));
+``;
