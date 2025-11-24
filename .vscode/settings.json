@@ -1,0 +1,45 @@
+{
+  // Автоимпорты
+  "typescript.suggest.autoImports": true,
+  "javascript.suggest.autoImports": true,
+  
+  // Быстрые подсказки
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  
+  // Emmet
+  "emmet.triggerExpansionOnTab": true,
+  
+  // Подсказки и сниппеты
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.tabCompletion": "on",
+  
+  // Включение подсказок
+  "javascript.suggest.enabled": true,
+  "typescript.suggest.enabled": true,
+  
+  // Что показывать в подсказках
+  "editor.suggest.showMethods": true,
+  "editor.suggest.showFunctions": true,
+  "editor.suggest.showConstructors": true,
+  "editor.suggest.showFields": true,
+  "editor.suggest.showVariables": true,
+  
+  // Выбор подсказок
+  "editor.suggestSelection": "recentlyUsed",
+  
+  // Словесные подсказки
+  "editor.wordBasedSuggestions": "matchingDocuments",
+  
+  // Встроенные подсказки (Copilot)
+  "editor.inlineSuggest.enabled": true,
+  
+  // Дополнительные настройки для лучшего автодополнения
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.suggest.localityBonus": true
+}
