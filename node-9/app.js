@@ -1,21 +1,35 @@
-const crypto = require('crypto')
-const https = require('https')
+const perf_hooks = require('perf_hooks')
 
-const start = performance.now()
+const performanceObserver = new perf_hooks.PerformanceObserver((items, observer) => {
+  console.log(items.getEntries())
+  const entry = items.getEntriesByName('slow').pop()
+  console.log(`${entry.name}: ${entry.duration}`)
+  observer.disconnect()
+})
 
-// process.env.UV_THREADPOOL_SIZE = 8
+performanceObserver.observe({entryTypes: ['measure', 'function']})
 
-// for(let i = 0; i < 50; i++) {
-//   crypto.pbkdf2('test', 'salt', 10000, 64, 'sha512', () => {
-//     console.log(performance.now() - start)
-//   })
-// }
+test = perf_hooks.performance.timerify(test)
 
-for(let i = 0; i < 50; i++) {
-  https.get('https://yandex.ru', (res) => {
-    res.on('data', () => {})
-    res.on('end', () => {
-      console.log(performance.now() - start)
-    })
-  })
+function test(){
+    const arr = []
+
+  for(let i = 0; i < 1000000; i++) {
+    arr.push(i*i)
+  }
 }
+
+function slow(){
+  performance.mark('start')
+  const arr = []
+
+  for(let i = 0; i < 1000000; i++) {
+    arr.push(i*i)
+  }
+  performance.mark('end')
+  performance.measure('slow', 'start', 'end')
+  // console.log(performance.getEntriesByName('slow'))
+}
+
+slow()
+test()
